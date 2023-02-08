@@ -5,7 +5,7 @@ import CommonCard from "./CommonCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NeonButton from "./NeonButton";
 import { fire } from "../firebaseConfig";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore";
 
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";

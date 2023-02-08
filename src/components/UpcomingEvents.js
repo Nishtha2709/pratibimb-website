@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fire } from "../firebaseConfig";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore";
 
 const UpcomingEvents = () => {
   const [info, setInfo] = useState([]);

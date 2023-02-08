@@ -9,7 +9,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { fire } from "../firebaseConfig";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore";
 import NeonButton from "./NeonButton";
 
 const EventListPast = () => {
@@ -78,7 +78,7 @@ const EventListUpcoming = () => {
   const [info, setInfo] = useState([]);
 
   async function getEvents(db) {
-    const events_col = collection(db, "PA_Events_New");
+    const events_col = collection(fire, "PA_Events_New");
     const events_snapshot = await getDocs(events_col);
     const events_list = events_snapshot.docs.map((doc) => doc.data());
     setInfo(events_list);

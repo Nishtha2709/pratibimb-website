@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { doc, getDocs, collection, getDoc, setDoc } from "firebase/firestore";
+import { doc, collection, getDoc, setDoc } from "firebase/firestore";
 import { auth, provider, fire } from "../firebaseConfig";
 import "../sass/loginform.css";
 import HeroCommon from "./HeroCommon";
