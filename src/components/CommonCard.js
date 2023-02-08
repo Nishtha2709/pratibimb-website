@@ -1,4 +1,5 @@
 import * as React from "react";
+import NeonButton from "./NeonButton";
 
 const IlluminatiCard = ({ name, image, results }) => {
   return (
@@ -29,16 +30,31 @@ const PACard = ({ name, image }) => {
   );
 };
 
+const RegisterCard = ({ name, image }) => {
+  return (
+    <div className="card-pa">
+      <div className="imgbox">
+        <img src={image} alt="" loading="lazy" />
+      </div>
+      <div className="content-pa">
+        <h3>{name}</h3><br></br>
+        <NeonButton href="/login"> Register Now! </NeonButton>
+      </div>
+    </div>
+  );
+};
+
 const CommonCard = ({ type, name, image, results }) => {
   return (
     <div>
       {type === "pa" ? (
         <PACard name={name} image={image} />
-      ) : (
-        <IlluminatiCard name={name} image={image} results={results} />
-      )}
+      ) : type === "reg" ? (
+        <RegisterCard name={name} image={image} /> 
+      ) : (<PACard name={name} image={image}  />)}
     </div>
   );
 };
+
 
 export default CommonCard;
