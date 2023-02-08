@@ -18,6 +18,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import UpcomingEvents from "./components/UpcomingEvents";
 import Loginform from "./components/Loginform";
+import SignOut from "./components/SignOut";
+import ScrollToTop from "./utils/scrollToTop";
 
 const theme = createTheme({
   palette: {
@@ -56,6 +58,7 @@ const App = () => {
     { path: "/illuminati", element: <Illuminati /> },
     { path: "/events", element: <Events /> },
     { path: "/login", element: <Loginform /> },
+    { path: "/signout", element: <SignOut /> },
     // ...
   ]);
   return routes;
@@ -71,6 +74,7 @@ const AppWrapper = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
+        <ScrollToTop />
         <App />
         <Footer />
       </ThemeProvider>

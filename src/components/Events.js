@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import HeroCommon from "./HeroCommon";
 import { Grid } from "@mui/material";
 import past_events from "../content/past_events";
@@ -8,7 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
-import fire from "../fire";
+import { fire } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore/lite";
 import NeonButton from "./NeonButton";
 
@@ -86,12 +86,12 @@ const EventListUpcoming = () => {
 
   useEffect(() => {
     getEvents(fire);
-    console.log(info)
+    console.log(info);
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div style={{ margin : "6rem 0 2rem 0"}}>
+    <div style={{ margin: "6rem 0 2rem 0" }}>
       <Grid container spacing={5} justifyContent={justify ? "start" : "center"}>
         {info.map((il, index) => {
           return (
@@ -118,9 +118,7 @@ const EventListUpcoming = () => {
       </Grid>
     </div>
   );
-}
-
-
+};
 
 const Events = () => {
   return (
@@ -160,14 +158,14 @@ const Events = () => {
         </div>
       </div>
 
-      <div style={{ background: "black"}}>
+      <div style={{ background: "black" }}>
         <div className="illuminati-theme">
           <h2 data-aos="fade-up">Upcoming Events of 2023</h2>
           <EventListUpcoming />
         </div>
         <div data-aos="fade-up">
           <center>
-          <NeonButton href="/login"> Register Now! </NeonButton>
+            <NeonButton href="/login"> Register Now! </NeonButton>
           </center>
           <br />
           <br />
@@ -175,7 +173,6 @@ const Events = () => {
           <br />
         </div>
       </div>
-
 
       <div className="illuminati-events-wrapper pa-background">
         <div className="illuminati-events">

@@ -4,7 +4,7 @@ import HeroCommon from "./HeroCommon";
 import CommonCard from "./CommonCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NeonButton from "./NeonButton";
-import fire from "../fire";
+import { fire } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore/lite";
 
 import ImageList from "@mui/material/ImageList";
@@ -29,7 +29,7 @@ const IlluminatiList = () => {
 
   useEffect(() => {
     getEvents(fire);
-    console.log(info)
+    console.log(info);
     // eslint-disable-next-line
   }, []);
 
@@ -78,35 +78,38 @@ const Illuminati = () => {
           <h2 data-aos="fade-up">TURN IT INTO ART</h2>
           <br />
           <p data-aos="fade-up">
-          The theme of Illuminati ‘23 is “Turn it into Art”.
-          For eons, art has been a cultural bridge between civilizations,
-          transcending all language and social barriers. For centuries,
-          appreciators of art have come together, and despite the myriad
-          of backgrounds they hail from, they have achieved common ground of
-          intellect in the form of decrypting the secrets behind what would
-          appear to be only a few layers of paint.
+            The theme of Illuminati ‘23 is “Turn it into Art”. For eons, art has
+            been a cultural bridge between civilizations, transcending all
+            language and social barriers. For centuries, appreciators of art
+            have come together, and despite the myriad of backgrounds they hail
+            from, they have achieved common ground of intellect in the form of
+            decrypting the secrets behind what would appear to be only a few
+            layers of paint.
           </p>
           <p data-aos="fade-up">
             Art and its contribution to the psychological evolution of mankind
-            is undisputed, and has now come to be appreciated and understood even in modern age.
+            is undisputed, and has now come to be appreciated and understood
+            even in modern age.
           </p>
           <p data-aos="fade-up">
-          We, at Pratibimb this year are celebrating exactly this, the creators
-          of these timeless art pieces and their works, that have been around
-          longer than any of us and would continue to ride the tide of time and
-          pass all the tests of relevancy that would be thrown at them. Some of
-          these pieces are happy, some tragic, and we as appreciators of art
-          accept and celebrate them all equally.</p><p>
-          The true beauty of art lies in the fact that a traditional Japanese
-          woodblock print by Hokusai, The Great Wave off Kanagawa ends up inspiring
-          the likes of Vincent van Gogh, Claude Debussy, Claude Monet, and Hiroshige,
-          substantiating the fact that in the end, all of this isn’t a competition,
-          sit’s a collaboration.
+            We, at Pratibimb this year are celebrating exactly this, the
+            creators of these timeless art pieces and their works, that have
+            been around longer than any of us and would continue to ride the
+            tide of time and pass all the tests of relevancy that would be
+            thrown at them. Some of these pieces are happy, some tragic, and we
+            as appreciators of art accept and celebrate them all equally.
+          </p>
+          <p>
+            The true beauty of art lies in the fact that a traditional Japanese
+            woodblock print by Hokusai, The Great Wave off Kanagawa ends up
+            inspiring the likes of Vincent van Gogh, Claude Debussy, Claude
+            Monet, and Hiroshige, substantiating the fact that in the end, all
+            of this isn’t a competition, sit’s a collaboration.
           </p>
           <p data-aos="fade-up">
-          Join us as we celebrate the same ethos this year by incorporating the theme
-          in Illuminati, so let your creative mind free and see which uncharted road it
-          takes you along!
+            Join us as we celebrate the same ethos this year by incorporating
+            the theme in Illuminati, so let your creative mind free and see
+            which uncharted road it takes you along!
           </p>
           <br />
           <br />
@@ -172,8 +175,8 @@ const Illuminati = () => {
           <br />
           <i>
             <h4 data-aos="fade-up">
-              The students of Production department as they lift the prestigiuous
-              Illuminati 2022 Cup
+              The students of Production department as they lift the
+              prestigiuous Illuminati 2022 Cup
             </h4>
           </i>
         </div>
