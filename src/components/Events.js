@@ -108,7 +108,7 @@ const EventListUpcoming = () => {
                 name={il.name}
                 image={il.poster}
                 desc={il.result}
-                type="pa"
+                type="reg"
               />
               <br />
               <br />
