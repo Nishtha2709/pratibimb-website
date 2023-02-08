@@ -17,6 +17,7 @@ import Events from "./components/Events";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import UpcomingEvents from "./components/UpcomingEvents";
+import Loginform from "./components/Loginform";
 
 const theme = createTheme({
   palette: {
@@ -54,6 +55,7 @@ const App = () => {
     { path: "/about", element: <About /> },
     { path: "/illuminati", element: <Illuminati /> },
     { path: "/events", element: <Events /> },
+    { path: "/login", element: <Loginform /> },
     // ...
   ]);
   return routes;

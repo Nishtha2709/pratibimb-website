@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import HeroCommon from "./HeroCommon";
 import { Grid } from "@mui/material";
 import past_events from "../content/past_events";
@@ -8,6 +8,9 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
+import fire from "../fire";
+import { collection, getDocs } from "firebase/firestore/lite";
+import NeonButton from "./NeonButton";
 
 const EventListPast = () => {
   const justify1 = useMediaQuery("(min-width:1000px)");
@@ -67,7 +70,57 @@ const EventListCurrent = () => {
       </Grid>
     </div>
   );
-}; //
+};
+
+const EventListUpcoming = () => {
+  const justify = useMediaQuery("(min-width:700px)");
+
+  const [info, setInfo] = useState([]);
+
+  async function getEvents(db) {
+    const events_col = collection(db, "PA_Events_New");
+    const events_snapshot = await getDocs(events_col);
+    const events_list = events_snapshot.docs.map((doc) => doc.data());
+    setInfo(events_list);
+  }
+
+  useEffect(() => {
+    getEvents(fire);
+    console.log(info)
+    // eslint-disable-next-line
+  }, []);
+
+  return (
+    <div style={{ margin : "6rem 0 2rem 0"}}>
+      <Grid container spacing={5} justifyContent={justify ? "start" : "center"}>
+        {info.map((il, index) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={6}
+              lg={4}
+              key={index}
+              data-aos="fade-up"
+            >
+              <CommonCard
+                name={il.name}
+                image={il.poster}
+                desc={il.result}
+                type="pa"
+              />
+              <br />
+              <br />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </div>
+  );
+}
+
+
 
 const Events = () => {
   return (
@@ -106,6 +159,23 @@ const Events = () => {
           <br />
         </div>
       </div>
+
+      <div style={{ background: "black"}}>
+        <div className="illuminati-theme">
+          <h2 data-aos="fade-up">Upcoming Events of 2023</h2>
+          <EventListUpcoming />
+        </div>
+        <div data-aos="fade-up">
+          <center>
+          <NeonButton href="/login"> Register Now! </NeonButton>
+          </center>
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
+      </div>
+
 
       <div className="illuminati-events-wrapper pa-background">
         <div className="illuminati-events">
