@@ -18,6 +18,24 @@ const Footer = () => {
             <div className="footer-prati">
               <h3>PRATIBIMB VJTI</h3>
               <br />
+              <p>
+                Website Contributed By<br></br>
+                <a
+                  href="https://communityofcoders.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    textDecoration: "none",
+                    color: "green",
+                    fontSize: "1.1rem",
+                    fontWeight: "strong",
+                  }}
+                >
+                  Community of Coders, VJTI
+                </a>{" "}
+                💚
+              </p>
+              <br />
               <Box
                 className="social-icons"
                 display="flex"

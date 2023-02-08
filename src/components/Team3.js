@@ -101,17 +101,17 @@ export default function Team3() {
             <Grid item md>
               <MemberCard
                 color="purple"
-                name="Aditi Jadhav"
-                img={ADITI_JADHAV}
-                post="Design Coordinator"
+                name="Arya Dhumane"
+                img={ARYA_DHUMANE}
+                post="Design Head"
               />
             </Grid>
             <Grid item md>
               <MemberCard
                 color="purple"
-                name="Arya Dhumane"
-                img={ARYA_DHUMANE}
-                post="Design Head"
+                name="Aditi Jadhav"
+                img={ADITI_JADHAV}
+                post="Design Coordinator"
               />
             </Grid>
             <Grid item md>
@@ -174,14 +174,6 @@ export default function Team3() {
           >
             <Grid item md>
               <MemberCard
-                color="blue"
-                name="Nishtha Pandey"
-                img={NISHTHA_PANDEY}
-                post="Performing Arts Coordinator"
-              />
-            </Grid>
-            <Grid item md>
-              <MemberCard
                 color="purple"
                 name="Aadya Navalkar"
                 img={AADYA_NAVALKAR}
@@ -207,6 +199,14 @@ export default function Team3() {
             <Grid item md>
               <MemberCard
                 color="blue"
+                name="Nishtha Pandey"
+                img={NISHTHA_PANDEY}
+                post="Performing Arts Coordinator"
+              />
+            </Grid>
+            <Grid item md>
+              <MemberCard
+                color="blue"
                 name="Keisha Gupta"
                 img={KEISHA_GUPTA}
                 post="Performing Arts Coordinator"
@@ -220,7 +220,6 @@ export default function Team3() {
                 post="Performing Arts Coordinator"
               />
             </Grid>
-
           </Grid>
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
@@ -256,7 +255,6 @@ export default function Team3() {
             </Grid>
           </Grid>
         </TabPanel>
-
       </SwipeableViews>
     </Box>
   );

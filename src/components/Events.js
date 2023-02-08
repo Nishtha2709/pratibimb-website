@@ -60,6 +60,7 @@ const EventListCurrent = () => {
                 name={il.name}
                 image={il.image}
                 desc={il.desc}
+                url={il.form}
                 type="pa"
               />
               <br />
@@ -86,7 +87,6 @@ const EventListUpcoming = () => {
 
   useEffect(() => {
     getEvents(fire);
-    console.log(info);
     // eslint-disable-next-line
   }, []);
 
@@ -108,6 +108,7 @@ const EventListUpcoming = () => {
                 name={il.name}
                 image={il.poster}
                 desc={il.result}
+                url={il.form}
                 type="reg"
               />
               <br />
@@ -165,7 +166,12 @@ const Events = () => {
         </div>
         <div data-aos="fade-up">
           <center>
-            <NeonButton href="/login"> Register Now! </NeonButton>
+            {!localStorage.getItem("user") && (
+              <NeonButton href="/login">
+                {" "}
+                Login to Register for the Events!{" "}
+              </NeonButton>
+            )}
           </center>
           <br />
           <br />

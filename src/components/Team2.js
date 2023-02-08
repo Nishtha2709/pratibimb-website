@@ -1,4 +1,4 @@
-  import * as React from "react";
+import * as React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
@@ -23,7 +23,7 @@ import OM_CHAJED from "../assets/Team/OM_CHAJED.jpg";
 import RICHA_DESHPANDE from "../assets/Team/RICHA_DESHPANDE.webp";
 import PRIYANKA_REDDY from "../assets/Team/PRIYANKA_REDDY.jpeg";
 import SAEE_AMRUTKAR from "../assets/Team/SAEE_AMRUTKAR.jpeg";
-import PRATHAMEYA_WALIMBE from "../assets/Team/PRATHAMEYA_WALIMBE.jpg"
+import PRATHAMEYA_WALIMBE from "../assets/Team/PRATHAMEYA_WALIMBE.jpg";
 import MOHIT_MAHNORI from "../assets/Team/MOHIT_MAHNORI.jpg";
 import PRANAV_NAYAK from "../assets/Team/PRANAV_NAYAK.jpeg";
 import HARSHAL_UBALE from "../assets/Team/HARSHAL_UBALE.jpg";
@@ -105,14 +105,6 @@ export default function Team2() {
           >
             <Grid item md>
               <MemberCard
-                color="blue"
-                name="Om Chajed"
-                img={OM_CHAJED}
-                post="Marketing Coordinator"
-              />
-            </Grid>
-            <Grid item md>
-              <MemberCard
                 color="purple"
                 name="Utkarsha Tarmale"
                 img={UTKARSHA_TARMALE}
@@ -138,6 +130,14 @@ export default function Team2() {
             <Grid item md>
               <MemberCard
                 color="blue"
+                name="Om Chajed"
+                img={OM_CHAJED}
+                post="Marketing Coordinator"
+              />
+            </Grid>
+            <Grid item md>
+              <MemberCard
+                color="blue"
                 name="Sheena Dmello"
                 img={SHEENA_DMELLO}
                 post="Marketing Coordinator"
@@ -152,14 +152,6 @@ export default function Team2() {
             alignItems="center"
             justifyContent="center"
           >
-            <Grid item md>
-              <MemberCard
-                color="blue"
-                name="Richa Deshpande"
-                img={RICHA_DESHPANDE}
-                post="Public Relations Coordinator"
-              />
-            </Grid>
             <Grid item md>
               <MemberCard
                 color="purple"
@@ -179,6 +171,14 @@ export default function Team2() {
             <Grid item md>
               <MemberCard
                 color="blue"
+                name="Richa Deshpande"
+                img={RICHA_DESHPANDE}
+                post="Public Relations Coordinator"
+              />
+            </Grid>
+            <Grid item md>
+              <MemberCard
+                color="blue"
                 name="Priyanka Reddy"
                 img={PRIYANKA_REDDY}
                 post="Public Relations Coordinator"
@@ -193,14 +193,6 @@ export default function Team2() {
             alignItems="center"
             justifyContent="center"
           >
-            <Grid item md>
-              <MemberCard
-                color="green"
-                name="Pranav Nayak"
-                img={PRANAV_NAYAK}
-                post="Sponsorship Coordinator"
-              />
-            </Grid>
             <Grid item md>
               <MemberCard
                 color="purple"
@@ -223,6 +215,14 @@ export default function Team2() {
                 name="Tanvi Bote"
                 img={TANVI_BOTE}
                 post="Sponsorship Head"
+              />
+            </Grid>
+            <Grid item md>
+              <MemberCard
+                color="green"
+                name="Pranav Nayak"
+                img={PRANAV_NAYAK}
+                post="Sponsorship Coordinator"
               />
             </Grid>
             <Grid item md>
@@ -252,14 +252,6 @@ export default function Team2() {
           >
             <Grid item md>
               <MemberCard
-                color="blue"
-                name="Arnav Zutshi"
-                img={ARNAV_ZUTSHI}
-                post="Execution Coordinator"
-              />
-            </Grid>
-            <Grid item md>
-              <MemberCard
                 color="purple"
                 name="Suyash Dammani"
                 img={SUYASH}
@@ -280,6 +272,14 @@ export default function Team2() {
                 name="Roshit Dahat"
                 img={ROSHIT_DAHAT}
                 post="Execution Head"
+              />
+            </Grid>
+            <Grid item md>
+              <MemberCard
+                color="blue"
+                name="Arnav Zutshi"
+                img={ARNAV_ZUTSHI}
+                post="Execution Coordinator"
               />
             </Grid>
             <Grid item md>

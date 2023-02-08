@@ -9,6 +9,25 @@ import AMANPREET_BAINS from "../assets/Team/AMANPREET_BAINS.jpg";
 export default function WebDevTeam() {
   return (
     <Box sx={{ maxWidth: "1300px", margin: "0 auto" }} data-aos="fade-up">
+      <center>
+        <p style={{ marginBottom: "1.2rem" }}>
+          Website contributed by{" "}
+          <a
+            href="https://communityofcoders.in/"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: "none",
+              color: "green",
+              fontSize: "1.2rem",
+              fontWeight: "strong",
+            }}
+          >
+            Community of Coders, VJTI
+          </a>{" "}
+          💚
+        </p>
+      </center>
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item md>
           <MemberCard

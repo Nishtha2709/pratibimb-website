@@ -56,10 +56,10 @@ const LoginForm = () => {
       });
       navigate("/events");
     } else if (
-      status.slice(0, 2) === "CC" &&
-      status.slice(2).match("[0-9]{2}")
+      status.slice(0, 3) === "CC-" &&
+      status.slice(3).match("[0-9]{2}")
     ) {
-      const ccId = status.slice(2);
+      const ccId = status.slice(3);
       const docRef = doc(fire, "CC_Map", ccId);
       const docSnap = await getDoc(docRef);
       console.log(docSnap.data());
@@ -69,12 +69,12 @@ const LoginForm = () => {
       } else {
         const docRef = collection(fire, "CC_Map");
         const email = JSON.parse(localStorage.getItem("user")).email;
-        await setDoc(doc(docRef, status.slice(2)), {
+        await setDoc(doc(docRef, status.slice(3)), {
           email,
         });
         const docRef1 = collection(fire, "Email_Map");
         await setDoc(doc(docRef1, email), {
-          id: status.slice(2),
+          id: status.slice(3),
         });
         navigate("/events");
       }
@@ -103,7 +103,7 @@ const LoginForm = () => {
               <h2 data-aos="fade-up">Enter your participation type</h2>
               <p data-aos="fade-up">
                 <b>CC</b> - College Contingent (Mention along with code -
-                Example CC71)
+                Example CC-71)
               </p>
               <p data-aos="fade-up">
                 <b>NCP</b> - Non Contingent Participant
