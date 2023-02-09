@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { doc, collection, getDoc, setDoc } from "firebase/firestore";
@@ -7,12 +8,43 @@ import "../sass/loginform.css";
 import HeroCommon from "./HeroCommon";
 import { TextField } from "@mui/material";
 
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: "100",
+    backgroundColor: "#474644",
+    opacity: "100%",
+  },
+};
+
 const LoginForm = () => {
+  let subtitle;
   const navigate = useNavigate();
   const [errorLoggingIn, setErrorLoggingIn] = useState(false);
   const [status, setStatus] = useState();
   const [showCC, setShowCC] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
   const user1 = localStorage.getItem("user");
+  const [isOpen, setIsOpen] = useState(false);
+
+  function openModal(msg) {
+    setErrorMsg(msg);
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    subtitle.style.color = "#f00";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const handleCC = async (user) => {
     if (user) {
@@ -64,8 +96,9 @@ const LoginForm = () => {
       const docSnap = await getDoc(docRef);
       console.log(docSnap.data());
       if (docSnap.data()) {
-        alert("This College Code has already registered. Login found invalid");
-        navigate("/signout");
+        openModal(
+          "This College Code has already registered. Login found invalid"
+        );
       } else {
         const docRef = collection(fire, "CC_Map");
         const email = JSON.parse(localStorage.getItem("user")).email;
@@ -79,7 +112,7 @@ const LoginForm = () => {
         navigate("/events");
       }
     } else {
-      alert("Incorrect status given as input, please try again");
+      openModal("Incorrect status given as input, please try again");
     }
   };
 
@@ -90,6 +123,29 @@ const LoginForm = () => {
         title="Event Registration"
         subtitle="Login using your Gmail"
       ></HeroCommon>
+      <Modal
+        isOpen={isOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Modal Alert"
+      >
+        <center>
+          <h2
+            ref={(_subtitle) => (subtitle = _subtitle)}
+            style={{ color: "#f5aeb1" }}
+          >
+            Error!
+          </h2>
+          <div style={{ color: "white" }}>{errorMsg}</div>
+          <button
+            style={{ color: "black", padding: "0.3rem", marginTop: "1rem" }}
+            onClick={closeModal}
+          >
+            Close
+          </button>
+        </center>
+      </Modal>
       <div style={{ background: "black" }}>
         <div className="illuminati-theme">
           {!showCC ? (
@@ -110,25 +166,27 @@ const LoginForm = () => {
               </p>
               <br />
               <div>
-                <form>
-                  <TextField
-                    id="outlined-basic"
-                    label="Participation Status"
-                    variant="outlined"
-                    value={status}
-                    onChange={(e) => {
-                      setStatus(e.target.value);
-                    }}
-                  />
-                  <br />
-                  <button
-                    onClick={verifyAndRegisterCC}
-                    className="custom-btn btn-15"
-                    style={{ marginTop: "2rem" }}
-                  >
-                    Register participation status
-                  </button>
-                </form>
+                {!isOpen && (
+                  <form>
+                    <TextField
+                      id="outlined-basic"
+                      label="Participation Status"
+                      variant="outlined"
+                      value={status}
+                      onChange={(e) => {
+                        setStatus(e.target.value);
+                      }}
+                    />
+                    <br />
+                    <button
+                      onClick={verifyAndRegisterCC}
+                      className="custom-btn btn-15"
+                      style={{ marginTop: "2rem" }}
+                    >
+                      Register participation status
+                    </button>
+                  </form>
+                )}
               </div>
             </center>
           )}
