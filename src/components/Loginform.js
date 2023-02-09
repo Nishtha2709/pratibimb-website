@@ -51,7 +51,7 @@ const LoginForm = () => {
       const docRef = doc(fire, "Email_Map", user.email);
       const docSnap = await getDoc(docRef);
       if (docSnap.data()) {
-        navigate("/events");
+        navigate("/");
       } else {
         setShowCC(true);
       }
@@ -75,6 +75,7 @@ const LoginForm = () => {
       })
       .catch((err) => {
         setErrorLoggingIn(true);
+        openModal("Error Logging In, Please Try Again!");
       });
   };
 
@@ -86,7 +87,7 @@ const LoginForm = () => {
       await setDoc(doc(docRef, email), {
         id: "-1",
       });
-      navigate("/events");
+      navigate("/");
     } else if (
       status.slice(0, 3) === "CC-" &&
       status.slice(3).match("[0-9]{2}")
@@ -109,7 +110,7 @@ const LoginForm = () => {
         await setDoc(doc(docRef1, email), {
           id: status.slice(3),
         });
-        navigate("/events");
+        navigate("/");
       }
     } else {
       openModal("Incorrect status given as input, please try again");
@@ -157,6 +158,10 @@ const LoginForm = () => {
           ) : (
             <center className="vjti">
               <h2 data-aos="fade-up">Enter your participation type</h2>
+              <p data-aos="fade-up">
+                Note that this action is irreversible - you cannot change your
+                participation status afterwards
+              </p>
               <p data-aos="fade-up">
                 <b>CC</b> - College Contingent (Mention along with code -
                 Example CC-71)
