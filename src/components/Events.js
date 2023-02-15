@@ -162,21 +162,24 @@ const Events = () => {
       <div style={{ background: "black" }}>
         <div className="illuminati-theme">
           <h2 data-aos="fade-up">Upcoming Events of 2023</h2>
+          <div data-aos="fade-up">
+            <br />
+            <br />
+            <br />
+            <br />
+            <center>
+              {!localStorage.getItem("user") && (
+                <NeonButton href="/login">
+                  {" "}
+                  Login to Register for the Events!{" "}
+                </NeonButton>
+              )}
+            </center>
+            <br />
+            <br />
+            <br />
+          </div>
           <EventListUpcoming />
-        </div>
-        <div data-aos="fade-up">
-          <center>
-            {!localStorage.getItem("user") && (
-              <NeonButton href="/login">
-                {" "}
-                Login to Register for the Events!{" "}
-              </NeonButton>
-            )}
-          </center>
-          <br />
-          <br />
-          <br />
-          <br />
         </div>
       </div>
 
