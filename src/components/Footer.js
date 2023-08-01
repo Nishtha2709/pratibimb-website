@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Grid, Box, Link } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +11,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
+  if (pathname === "/signout") {
+    return null;
+  }
+
   return (
     <div className="footer">
       <div style={{ maxWidth: "1300px", margin: "auto" }}>
